@@ -36,7 +36,7 @@ func Error(t *testing.T, err error, errorExpected bool) {
 	}
 }
 
-func EqualInterfaces(t *testing.T, r1, r2 interface{}) {
+func DeepEqual(t *testing.T, r1, r2 interface{}) {
 	if !reflect.DeepEqual(r1, r2) {
 		t.Errorf("expected equality: %v, %v", r1, r2)
 	}

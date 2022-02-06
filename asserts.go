@@ -52,15 +52,15 @@ func DeepEqual(t *testing.T, r1, r2 interface{}) {
 
 func CompareInt64(t *testing.T, i1, i2 int64, exp int) {
 	if i1 < i2 {
-		if exp != Less || exp != LessOrEqual {
+		if exp != Less && exp != LessOrEqual {
 			t.Errorf("expected %d < %d", i1, i2)
 		}
 	} else if i1 == i2 {
-		if exp != LessOrEqual || exp != Equal || exp != GreaterOrEqual {
+		if exp != LessOrEqual && exp != Equal && exp != GreaterOrEqual {
 			t.Errorf("expected %d = %d", i1, i2)
 		}
 	} else {
-		if exp != Greater || exp != GreaterOrEqual {
+		if exp != Greater && exp != GreaterOrEqual {
 			t.Errorf("expected %d > %d", i1, i2)
 		}
 	}

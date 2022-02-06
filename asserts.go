@@ -26,6 +26,9 @@ func UnequalValues(t *testing.T, v1, v2 interface{}) {
 }
 
 func Nil(t *testing.T, v interface{}, nilExpected bool) {
+	if v == nil && !nilExpected {
+		t.Error("unexpected nil")
+	}
 	val := reflect.ValueOf(v)
 	if val.IsNil() && !nilExpected {
 		t.Error("unexpected nil")

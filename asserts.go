@@ -29,9 +29,8 @@ func Nil(t *testing.T, v interface{}, nilExpected bool) {
 	if v == nil {
 		if !nilExpected {
 			t.Error("unexpected nil")
-		} else {
-			return
 		}
+		return
 	}
 	val := reflect.ValueOf(v)
 	if val.IsNil() && !nilExpected {

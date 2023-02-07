@@ -1,6 +1,7 @@
 package testo
 
 import (
+	"math"
 	"reflect"
 	"testing"
 )
@@ -69,5 +70,15 @@ func CompareInt64(t *testing.T, i1, i2 int64, exp int) {
 		if exp != Greater && exp != GreaterOrEqual {
 			t.Errorf("expected %d > %d", i1, i2)
 		}
+	}
+}
+
+const (
+	floatEqualityThreshold = 0.00001
+)
+
+func EqualFloat64(t *testing.T, f1, f2 float64) {
+	if math.Abs(f1-f2) > floatEqualityThreshold {
+		t.Errorf("expected equality: %f, %f", f1, f2)
 	}
 }
